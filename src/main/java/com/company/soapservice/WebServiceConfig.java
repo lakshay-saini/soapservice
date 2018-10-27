@@ -25,9 +25,9 @@ public class WebServiceConfig {
 	@Bean(name = "order")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema studentsSchema) {
 		DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
-		definition.setPortTypeName("port");
+		definition.setPortTypeName("OBBUpdateOrderStatus");
 		definition.setTargetNamespace("urn:order");
-		definition.setLocationUri("/ws");
+		definition.setLocationUri("/obb_ffa");
 		definition.setSchema(studentsSchema);
 		return definition;
 	}
