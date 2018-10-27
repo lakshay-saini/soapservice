@@ -1,0 +1,84 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="urn:order" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:order" targetNamespace="urn:order">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:order">
+            <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+            <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+            <xsd:element name="updateOrderStatusRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="usercredentials" type="tns:usercredentials"/>
+                        <xsd:element name="data" type="tns:data"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="updateOrderStatusResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="_return" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="usercredentials">
+                <xsd:all>
+                    <xsd:element name="username" type="xsd:string"/>
+                    <xsd:element name="password" type="xsd:string"/>
+                    <xsd:element name="client_id" type="xsd:string"/>
+                    <xsd:element name="client_secret" type="xsd:string"/>
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="data">
+                <xsd:all>
+                    <xsd:element name="obb_ref_num" type="xsd:string"/>
+                    <xsd:element name="order_status" type="xsd:string"/>
+                    <xsd:element name="installation_date" type="xsd:string"/>
+                    <xsd:element name="power_level_at_cap" type="xsd:string"/>
+                    <xsd:element name="power_level_at_fdh" type="xsd:string"/>
+                    <xsd:element name="ont_make" type="xsd:string"/>
+                    <xsd:element name="ont_serialno" type="xsd:string"/>
+                    <xsd:element name="handset_make" type="xsd:string"/>
+                    <xsd:element name="handset_serialno" type="xsd:string"/>
+                    <xsd:element name="fdn" type="xsd:string"/>
+                    <xsd:element name="problem_category" type="xsd:string"/>
+                    <xsd:element name="problem_description" type="xsd:string"/>
+                    <xsd:element name="consent_signature_file_name" type="xsd:string"/>
+                    <xsd:element name="consent_signature_file" type="xsd:base64Binary"/>
+                    <xsd:element name="evidence_photo_file_name" type="xsd:string"/>
+                    <xsd:element name="evidence_photo_file" type="xsd:base64Binary"/>
+                    <xsd:element name="qhse_form_file_name" type="xsd:string"/>
+                    <xsd:element name="qhse_form_file" type="xsd:base64Binary"/>
+                    <xsd:element name="completion_sheet_file_name" type="xsd:string"/>
+                    <xsd:element name="completion_sheet_file" type="xsd:base64Binary"/>
+                </xsd:all>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="updateOrderStatusRequest">
+        <wsdl:part element="tns:updateOrderStatusRequest" name="updateOrderStatusRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateOrderStatusResponse">
+        <wsdl:part element="tns:updateOrderStatusResponse" name="updateOrderStatusResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="OBBUpdateOrderStatus">
+        <wsdl:operation name="updateOrderStatus">
+            <wsdl:input message="tns:updateOrderStatusRequest" name="updateOrderStatusRequest"> </wsdl:input>
+            <wsdl:output message="tns:updateOrderStatusResponse" name="updateOrderStatusResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="OBBUpdateOrderStatusSoap11" type="tns:OBBUpdateOrderStatus">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="updateOrderStatus">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="updateOrderStatusRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateOrderStatusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="OBBUpdateOrderStatusService">
+        <wsdl:port binding="tns:OBBUpdateOrderStatusSoap11" name="OBBUpdateOrderStatusSoap11">
+            <soap:address location="http://localhost:8080/obb_ffa"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
