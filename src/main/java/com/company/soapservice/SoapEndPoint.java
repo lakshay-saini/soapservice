@@ -19,7 +19,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class SoapEndPoint {
 
-    @PayloadRoot(namespace = "WFM.xsd", localPart = "updateOrderStatusRequest")
+    @PayloadRoot(namespace = "urn:order", localPart = "updateOrderStatusRequest")
     @ResponsePayload
     public UpdateOrderStatusResponse processupdateOrderStatusRequest(@RequestPayload UpdateOrderStatusRequest request) {
         UpdateOrderStatusResponse response = new UpdateOrderStatusResponse();
@@ -27,7 +27,7 @@ public class SoapEndPoint {
         return response;
     }
 
-    @PayloadRoot(namespace = "WFM.xsd", localPart = "WFMCreateWORequest")
+    @PayloadRoot(namespace = "urn:order", localPart = "WFMCreateWORequest")
     @ResponsePayload
     public WFMCreateWOResponse processWFMCreateWORequestRequest(@RequestPayload WFMCreateWORequest request) {
         WFMCreateWOResponse response = new WFMCreateWOResponse();
@@ -35,7 +35,7 @@ public class SoapEndPoint {
         return response;
     }
 
-    @PayloadRoot(namespace = "WFM.xsd", localPart = "WFMUpdateWORequest")
+    @PayloadRoot(namespace = "urn:order", localPart = "WFMUpdateWORequest")
     @ResponsePayload
     public WFMUpdateWOResponse processWFMUpdateWORequest(@RequestPayload WFMUpdateWORequest request) {
         WFMUpdateWOResponse response = new WFMUpdateWOResponse();
@@ -43,7 +43,7 @@ public class SoapEndPoint {
         return response;
     }
 
-    @PayloadRoot(namespace = "WFM.xsd", localPart = "WFMUpdateStatusRequest")
+    @PayloadRoot(namespace = "urn:order", localPart = "WFMUpdateStatusRequest")
     @ResponsePayload
     public WFMUpdateStatusResponse processWFMUpdateStatusRequest(@RequestPayload WFMUpdateStatusRequest request) {
         WFMUpdateStatusResponse response = new WFMUpdateStatusResponse();
