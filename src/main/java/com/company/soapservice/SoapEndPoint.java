@@ -4,6 +4,8 @@ import order.UpdateOrderStatusRequest;
 import order.UpdateOrderStatusResponse;
 import order.WFMCreateWORequest;
 import order.WFMCreateWOResponse;
+import order.WFMUpdateStatusRequest;
+import order.WFMUpdateStatusResponse;
 import order.WFMUpdateWORequest;
 import order.WFMUpdateWOResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -17,15 +19,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class SoapEndPoint {
 
-    @PayloadRoot(namespace = "urn:order", localPart = "WFMCreateWORequest")
-    @ResponsePayload
-    public WFMCreateWOResponse processWFMCreateWORequestRequest(@RequestPayload WFMCreateWORequest request) {
-        WFMCreateWOResponse response = new WFMCreateWOResponse();
-        response.setReturn("success");
-        return response;
-    }
-
-    @PayloadRoot(namespace = "urn:order", localPart = "updateOrderStatusRequest")
+    @PayloadRoot(namespace = "WFM.xsd", localPart = "updateOrderStatusRequest")
     @ResponsePayload
     public UpdateOrderStatusResponse processupdateOrderStatusRequest(@RequestPayload UpdateOrderStatusRequest request) {
         UpdateOrderStatusResponse response = new UpdateOrderStatusResponse();
@@ -33,10 +27,26 @@ public class SoapEndPoint {
         return response;
     }
 
-    @PayloadRoot(namespace = "urn:order", localPart = "WFMUpdateWORequest")
+    @PayloadRoot(namespace = "WFM.xsd", localPart = "WFMCreateWORequest")
+    @ResponsePayload
+    public WFMCreateWOResponse processWFMCreateWORequestRequest(@RequestPayload WFMCreateWORequest request) {
+        WFMCreateWOResponse response = new WFMCreateWOResponse();
+        response.setReturn("success");
+        return response;
+    }
+
+    @PayloadRoot(namespace = "WFM.xsd", localPart = "WFMUpdateWORequest")
     @ResponsePayload
     public WFMUpdateWOResponse processWFMUpdateWORequest(@RequestPayload WFMUpdateWORequest request) {
         WFMUpdateWOResponse response = new WFMUpdateWOResponse();
+        response.setReturn("success");
+        return response;
+    }
+
+    @PayloadRoot(namespace = "WFM.xsd", localPart = "WFMUpdateStatusRequest")
+    @ResponsePayload
+    public WFMUpdateStatusResponse processWFMUpdateStatusRequest(@RequestPayload WFMUpdateStatusRequest request) {
+        WFMUpdateStatusResponse response = new WFMUpdateStatusResponse();
         response.setReturn("success");
         return response;
     }

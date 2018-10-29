@@ -34,6 +34,6 @@ public class WebServiceConfig {
 
 	@Bean
 	public XsdSchema orderSchema() {
-		return new SimpleXsdSchema(new ClassPathResource("order.xsd"));
+		return new SimpleXsdSchema(new ClassPathResource("WFM.xsd"));
 	}
 }
