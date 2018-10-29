@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "usercredentials", "data"
 })
-@XmlRootElement(name = "GetUpdateOrderStatusRequest")
+@XmlRootElement(name = "UpdateOrderStatusRequest")
 public class UpdateOrderStatusRequest {
 
     @XmlElement(name = "usercredentials", required = true)

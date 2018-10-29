@@ -2,6 +2,10 @@ package com.company.soapservice;
 
 import order.UpdateOrderStatusRequest;
 import order.UpdateOrderStatusResponse;
+import order.WFMCreateWORequest;
+import order.WFMCreateWOResponse;
+import order.WFMUpdateWORequest;
+import order.WFMUpdateWOResponse;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -13,11 +17,28 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class SoapEndPoint {
 
+    @PayloadRoot(namespace = "urn:order", localPart = "WFMCreateWORequest")
+    @ResponsePayload
+    public WFMCreateWOResponse processWFMCreateWORequestRequest(@RequestPayload WFMCreateWORequest request) {
+        WFMCreateWOResponse response = new WFMCreateWOResponse();
+        response.setReturn("success");
+        return response;
+    }
+
     @PayloadRoot(namespace = "urn:order", localPart = "updateOrderStatusRequest")
     @ResponsePayload
-    public UpdateOrderStatusResponse processCourseDetailsRequest(@RequestPayload UpdateOrderStatusRequest request) {
+    public UpdateOrderStatusResponse processupdateOrderStatusRequest(@RequestPayload UpdateOrderStatusRequest request) {
         UpdateOrderStatusResponse response = new UpdateOrderStatusResponse();
         response.set_return("success");
         return response;
     }
+
+    @PayloadRoot(namespace = "urn:order", localPart = "WFMUpdateWORequest")
+    @ResponsePayload
+    public WFMUpdateWOResponse processWFMUpdateWORequest(@RequestPayload WFMUpdateWORequest request) {
+        WFMUpdateWOResponse response = new WFMUpdateWOResponse();
+        response.setReturn("success");
+        return response;
+    }
+
 }

@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
         "_return"
 })
-@XmlRootElement(name = "GetUpdateOrderStatusRequest")
+@XmlRootElement(name = "UpdateOrderStatusRequest")
 public class UpdateOrderStatusResponse {
 
     protected String _return;

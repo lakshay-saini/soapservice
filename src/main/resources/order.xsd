@@ -1,8 +1,12 @@
-<xsd:schema targetNamespace="urn:order" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="urn:order"
+        xmlns:tns="urn:order">
+
     <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
     <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
 
-    <xsd:element name="updateOrderStatusRequest">
+    <xsd:element name="UpdateOrderStatusRequest">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="usercredentials" type="tns:usercredentials"/>
@@ -11,7 +15,56 @@
         </xsd:complexType>
     </xsd:element>
 
-    <xsd:element name="updateOrderStatusResponse">
+    <xsd:element name="UpdateOrderStatusResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="_return" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="WFMUpdateWORequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="usercredentials" type="tns:usercredentials"/>
+                <xsd:element name="data" type="tns:data"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WFMUpdateWOResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="_return" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <xsd:element name="WFMUpdateStatusRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="usercredentials" type="tns:usercredentials"/>
+                <xsd:element name="data" type="tns:data"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WFMUpdateStatusResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="_return" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="WFMCreateWORequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="usercredentials" type="tns:usercredentials"/>
+                <xsd:element name="data" type="tns:data"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="WFMCreateWOResponse">
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="_return" type="xsd:string"/>
@@ -30,26 +83,33 @@
 
     <xsd:complexType name="data">
         <xsd:all>
-            <xsd:element name="obb_ref_num" type="xsd:string"/>
-            <xsd:element name="order_status" type="xsd:string"/>
-            <xsd:element name="installation_date" type="xsd:string"/>
-            <xsd:element name="power_level_at_cap" type="xsd:string"/>
-            <xsd:element name="power_level_at_fdh" type="xsd:string"/>
-            <xsd:element name="ont_make" type="xsd:string"/>
-            <xsd:element name="ont_serialno" type="xsd:string"/>
-            <xsd:element name="handset_make" type="xsd:string"/>
-            <xsd:element name="handset_serialno" type="xsd:string"/>
-            <xsd:element name="fdn" type="xsd:string"/>
-            <xsd:element name="problem_category" type="xsd:string"/>
-            <xsd:element name="problem_description" type="xsd:string"/>
-            <xsd:element name="consent_signature_file_name" type="xsd:string"/>
-            <xsd:element name="consent_signature_file" type="xsd:base64Binary"/>
-            <xsd:element name="evidence_photo_file_name" type="xsd:string"/>
-            <xsd:element name="evidence_photo_file" type="xsd:base64Binary"/>
-            <xsd:element name="qhse_form_file_name" type="xsd:string"/>
-            <xsd:element name="qhse_form_file" type="xsd:base64Binary"/>
-            <xsd:element name="completion_sheet_file_name" type="xsd:string"/>
-            <xsd:element name="completion_sheet_file" type="xsd:base64Binary"/>
+            <xsd:element name="order_type" type="xsd:string"/>
+            <xsd:element name="order_Seq" type="xsd:string"/>
+            <xsd:element name="order_Number" type="xsd:string"/>
+            <xsd:element name="request_Licenses" type="xsd:string"/>
+            <xsd:element name="rLWO" type="xsd:string"/>
+            <xsd:element name="rLNote" type="xsd:string"/>
+            <xsd:element name="end_user_FirstName" type="xsd:string"/>
+            <xsd:element name="end_user_LastName" type="xsd:string"/>
+            <xsd:element name="creationDate" type="xsd:string"/>
+            <xsd:element name="endUserType" type="xsd:string"/>
+            <xsd:element name="endUserGSM" type="xsd:string"/>
+            <xsd:element name="endUserGSM2" type="xsd:string"/>
+            <xsd:element name="endUser_tagID" type="xsd:string"/>
+            <xsd:element name="buildingNo" type="xsd:string"/>
+            <xsd:element name="goverenate" type="xsd:string"/>
+            <xsd:element name="area" type="xsd:string"/>
+            <xsd:element name="wayNumber" type="xsd:string"/>
+            <xsd:element name="propertyType" type="xsd:string"/>
+            <xsd:element name="splitterPort" type="xsd:string"/>
+            <xsd:element name="previousStatus" type="xsd:string"/>
+            <xsd:element name="categories" type="xsd:string"/>
+            <xsd:element name="dropCableLength" type="xsd:string"/>
+            <xsd:element name="status" type="xsd:base64Binary"/>
+            <xsd:element name="subcontractor" type="xsd:base64Binary"/>
+            <xsd:element name="supervisor" type="xsd:base64Binary"/>
+            <xsd:element name="plannedDate" type="xsd:base64Binary"/>
         </xsd:all>
     </xsd:complexType>
+
 </xsd:schema>
