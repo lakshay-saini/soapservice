@@ -19,11 +19,11 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class SoapEndPoint {
 
-    @PayloadRoot(namespace = "urn:order", localPart = "updateOrderStatusRequest")
+    @PayloadRoot(namespace = "urn:order", localPart = "UpdateOrderStatusRequest")
     @ResponsePayload
     public UpdateOrderStatusResponse processupdateOrderStatusRequest(@RequestPayload UpdateOrderStatusRequest request) {
         UpdateOrderStatusResponse response = new UpdateOrderStatusResponse();
-        response.set_return("success");
+        response.setReturn("success");
         return response;
     }
 
